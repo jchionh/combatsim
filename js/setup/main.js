@@ -14,6 +14,14 @@
  */
 function mainInit() {
     console.log('mainInit');
+    cs.gDevicePixelRatio = window.devicePixelRatio ? window.devicePixelRatio : 1;
+    cs.gCanvasElement.width = cs.gCanvasElement.clientWidth * cs.gDevicePixelRatio;
+    cs.gCanvasElement.height = cs.gCanvasElement.clientHeight * cs.gDevicePixelRatio;
+    console.log('devicePixelRatio: ' + cs.gDevicePixelRatio);
+
+    cs.gPrevTimestamp = 0;
+    cs.gDelta = 0;
+    cs.gRenderer2D = new cs.render.Renderer2D(cs.gCanvasElement);
     mainLoop(Date.now());
 };
 
@@ -24,6 +32,7 @@ function mainInit() {
  */
 function mainLoop(timestamp) {
     console.log('mainLoop: ' + timestamp);
+    cs.gRenderer2D.render();
 };
 
 /**
@@ -31,5 +40,5 @@ function mainLoop(timestamp) {
  */
 function needsRequestAnimFrame() {
     // request anim for the next loop call
-    window.requestAnimFrame(mainLoop, rb.gCanvasElement);
+    window.requestAnimFrame(mainLoop, cs.gCanvasElement);
 };
