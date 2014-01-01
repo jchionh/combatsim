@@ -4,6 +4,15 @@
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <!-- get the css in -->
     <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+
+    <script type="text/javascript">
+        // When the window has loaded, DOM is ready. init our main app
+        function init() {
+            mainInit();
+        }
+        window.onload = init;
+    </script>
+
     <title>combatsim</title>
 </head>
 
@@ -12,5 +21,16 @@
     <canvas id="renderCanvas" style="width: 800px; height: 600px; position: absolute; left: 0px; top: 0px;"></canvas>
 </div>
 <div>CombatSim</div>
+
+<!-- js sources -->
+<script src="js/setup/combatsim.js"></script>
+<script src="js/utils/extend.js"></script>
+
+<!-- utils -->
+<script src="js/utils/utils.js"></script>
+
+<!-- main -->
+<script src="js/setup/main.js"></script>
+
 </body>
 </html>
